@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""LRU CACHE"""
+""" LRU CACHE """
 
 
 BaseCaching = __import__("base_caching").BaseCaching
-
 
 class LRUCache(BaseCaching):
     """LRU cache class"""
