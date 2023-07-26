@@ -29,4 +29,3 @@ class LRUCache(BaseCaching):
             self.queue.append(key)
             return self.cache_data[key]
         return None
-
