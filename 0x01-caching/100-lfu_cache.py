@@ -27,7 +27,6 @@ class LFUCache(BaseCaching):
         if not self.freq_keys.get(self.min_frequency):
             self.min_frequency = 1
             self.min_frequency = min(self.min_frequency, frequency + 1)
-        
         self.freq_keys.setdefault(frequency + 1, [])
         self.freq_keys[frequency + 1].append(key)
 
