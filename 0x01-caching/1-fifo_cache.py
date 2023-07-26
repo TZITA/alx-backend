@@ -15,7 +15,6 @@ class FIFOCache(BaseCaching):
         """ Add an item in the cache """
         if key is not None and item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                # Discard the first item (FIFO)
                 oldest_key = self.queue.pop(0)
                 del self.cache_data[oldest_key]
                 print("DISCARD:", oldest_key)
