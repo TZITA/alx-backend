@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Flask babel babel setup"""
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, gettext as _
 
 
 app = Flask(__name__)
+babel = Babel(app)
 
 
 class Config:
@@ -15,7 +16,6 @@ class Config:
 
 
 app.config.from_object('3-app.Config')
-babel = Babel(app)
 
 
 @babel.localeselector
