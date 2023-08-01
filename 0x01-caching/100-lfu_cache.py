@@ -24,14 +24,11 @@ class LFUCache(BaseCaching):
             if len(self.freq_keys[frequency]) == 0:
                 del self.freq_keys[frequency]
 
-        if not self.freq_keys.get(self.min_frequency):
-            self.min_frequency = 1
-            self.min_frequency = min(self.min_frequency, frequency + 1)
-        self.freq_keys.setdefault(frequency + 1, [])
-        self.freq_keys[frequency + 1].append(key)
-
         if frequency == self.min_frequency and not self.freq_keys[frequency]:
             self.min_frequency += 1
+
+        self.freq_keys.setdefault(frequency + 1, [])
+        self.freq_keys[frequency + 1].append(key)
 
     def put(self, key, item):
         """ Add an item in the cache """
